@@ -97,10 +97,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [ "node_modules/particles.js/particles.js"]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "230f2aa0-39a3-49d9-b203-e36f0f2a563c"
   }
 }
