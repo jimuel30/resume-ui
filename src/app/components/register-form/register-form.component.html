@@ -1,39 +1,148 @@
-<div class="d-flex justify-content-center align-items-center col-12 vh-100 max-vh-100 flex-column">
-  <form class="col-11 col-xxl-4 col-md-8 col-sm-7 p-4">
-    <div class="col-12">
-      <section>
-<!--        <div class="form-group col-12">-->
-<!--          <label for="exampleInputEmail1">Email address</label>-->
-<!--          <input type="email" class="form-control col-12" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">-->
-<!--          <small id="emailHelp" class="form-text text-muted text-light">We'll never share your email with anyone else.</small>-->
-<!--        </div>-->
-
-        <div class="col-12">
-          <div class="form-group col-12">
-            <label for="firstName">First Name</label>
-            <input type="email" class="form-control col-12" id="firstName" aria-describedby="firstNameHelp" placeholder="Enter First Name">
-            <small class="form-text text-muted text-light">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group col-12">
-            <label for="middleName">Middle Name</label>
-            <input type="email" class="form-control col-12" id="middleName" aria-describedby="lastNameHelp" placeholder="Enter Middle Name">
-            <small class="form-text text-muted text-light">We'll never share your email with anyone else.</small>
-          </div>
-          <div class="form-group col-12">
-            <label for="lastName">Last Name</label>
-            <input type="email" class="form-control col-12" id="LastName" aria-describedby="lastNameHelp" placeholder="Enter Last Name">
-            <small class="form-text text-muted text-light">We'll never share your email with anyone else.</small>
-          </div>
+<div
+    class="d-flex justify-content-center align-items-center col-12 vh-100 max-vh-100 flex-column"
+>
+    <form class="col-12 col-xxl-4 col-md-8 col-sm-7 p-5">
+        <div class="col-12 d-flex gap-5" id="form-inputs">
+            <div class="form-group col-12" id="email-section">
+                <label for="exampleInputEmail1">Email address</label>
+                <input
+                    type="email"
+                    class="form-control col-12"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter email"
+                    [(ngModel)]="registerRequest.email"
+                    name="email"
+                    (ngModelChange)="onEmailChange()"
+                    required
+                />
+                <small class="form-text" *ngIf="!emailValid && onTransition"
+                    >Invalid Email Address</small
+                >
+            </div>
+            <div class="col-12 d-flex flex-column gap-2" id="name-section">
+                <div class="form-group col-12">
+                    <label for="firstName">First Name</label>
+                    <input
+                        type="email"
+                        class="form-control col-12"
+                        id="firstName"
+                        aria-describedby="firstNameHelp"
+                        placeholder="Enter First Name "
+                        [(ngModel)]="registerRequest.firstName"
+                        name="firstName"
+                        (ngModelChange)="onNameChange(0)"
+                    />
+                    <small class="form-text" *ngIf="!firstNameValid && onTransition"
+                        >**Required/Must Contain only valid characters</small
+                    >
+                </div>
+                <div class="form-group col-12">
+                    <label for="middleName">Middle Name</label>
+                    <input
+                        type="email"
+                        class="form-control col-12"
+                        id="middleName"
+                        aria-describedby="lastNameHelp"
+                        placeholder="Enter Middle Name"
+                        [(ngModel)]="registerRequest.middleName"
+                        name="middleName"
+                        (ngModelChange)="onNameChange(1)"
+                    />
+                    <small class="form-text" *ngIf="!middleNameValid && onTransition"
+                        >**Required/Must Contain only valid characters</small
+                    >
+                </div>
+                <div class="form-group col-12">
+                    <label for="lastName">Last Name</label>
+                    <input
+                        type="email"
+                        class="form-control col-12"
+                        id="LastName"
+                        aria-describedby="lastNameHelp"
+                        placeholder="Enter Last Name"
+                        [(ngModel)]="registerRequest.lastName"
+                        name="lastName"
+                        (ngModelChange)="onNameChange(2)"
+                    />
+                    <small class="form-text" *ngIf="!lastNameValid && onTransition"
+                        >**Required/Must Contain only valid characters</small
+                    >
+                </div>
+            </div>
+            <div class="form-group col-12" id="city-section">
+                <label for="exampleCity">City</label>
+                <input
+                    type="email"
+                    class="form-control col-12"
+                    id="exampleCity"
+                    aria-describedby="cityHelp"
+                    placeholder="Enter City"
+                    [(ngModel)]="registerRequest.city"
+                    name="city"
+                    (ngModelChange)="onCityChange()"
+                />
+                <small class="form-text" *ngIf="!cityValid && onTransition">**Required</small>
+            </div>
+            <div class="col-12 d-flex flex-column gap-2" id="password-section">
+                <div class="form-group col-12">
+                    <label for="examplePw">Password</label>
+                    <input
+                        type="password"
+                        class="form-control col-12"
+                        id="examplePw"
+                        aria-describedby="pwHelp"
+                        placeholder="Enter Password"
+                        [(ngModel)]="registerRequest.password"
+                        (ngModelChange)="onPasswordChange()"
+                        name="password"
+                    />
+                    <small class="form-text" *ngIf="!passwordValid && onTransition" >**Must be at least 8 chars</small>
+                </div>
+                <div class="form-group col-12">
+                    <label for="exampleConfirmPw">Confirm Password</label>
+                    <input
+                        type="password"
+                        class="form-control col-12"
+                        id="exampleConfirmPw"
+                        aria-describedby="confirmPwHelp"
+                        placeholder="Confirm Password"
+                        [(ngModel)]="confirmPassword"
+                        (ngModelChange)="onPasswordChange()"
+                        name="confirmPassword"
+                    />
+                    <small class="form-text" *ngIf="!confirmPasswordValid && onTransition">**Password did not match</small>
+                </div>
+            </div>
         </div>
-
-      </section>
-    </div>
-    <div class="col-12 d-flex justify-content-start align-items-center gap-2 flex-wrap" id="button-section">
-      <button type="button" class="btn btn-light col-12 col-xxl-2 col-md-4">PREV</button>
-      <button type="button" class="btn btn-light col-12 col-xxl-2 col-md-4">NEXT</button>
-    </div>
-  </form>
+        <div
+            class="col-12 d-flex justify-content-start align-items-center gap-2 flex-wrap pt-2"
+            id="button-section"
+        >
+            <button
+                type="button"
+                class="btn btn-primary col-12 col-xxl-2 col-md-4"
+                (click)="submitFormHandler()"
+                *ngIf="scrollIndex === 3"
+            >
+                REGISTER
+            </button>
+            <button
+                type="button"
+                class="btn btn-light col-12 col-xxl-2 col-md-4"
+                (click)="scrollForm(true)"
+                *ngIf="scrollIndex !== 3"
+            >
+                NEXT
+            </button>
+            <button
+                type="button"
+                class="btn btn-light col-12 col-xxl-2 col-md-4"
+                (click)="scrollForm(false)"
+                *ngIf="scrollIndex !== 0"
+            >
+                PREV
+            </button>
+        </div>
+    </form>
 </div>
-
-
-

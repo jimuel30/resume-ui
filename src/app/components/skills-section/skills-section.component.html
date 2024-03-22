@@ -1,0 +1,65 @@
+<div class="col-12 d-flex flex-column pt-4 pb-4" id="skills-section">
+  <section class="col-12 d-flex flex-row flex-wrap">
+    <h1 class="col-12 text-light p-2">MY SKILLS</h1>
+  </section>
+  <section class="col-12 d-flex flex-row flex-wrap gap-1 p-2">
+    <section class="col-12 col-xxl-2 col-md-10 xl-10"    *ngIf="forSaving">
+      <input
+        type="text"
+        class="form-control col-12"
+        id="exampleSkill"
+        aria-describedby="skillHelp"
+        placeholder="Enter Skill"
+        [(ngModel)]="saveSkill.skillName"
+      />
+    </section>
+    <button
+      type="button"
+      class="btn btn-primary col-12 col-xxl-2 col-md-4"
+      (click)="toggleForSaving()"
+      *ngIf="!forSaving"
+    >ADD SKILL</button>
+    <button
+      type="button"
+      class="btn btn-primary col-12 col-xxl-2 col-md-4"
+      *ngIf="forSaving"
+      (click)="submitSaveHandler()"
+    >SAVE</button>
+    <button
+      type="button"
+      class="btn btn-secondary col-12 col-xxl-2 col-md-4"
+      *ngIf="forSaving"
+      (click)="toggleForSaving()"
+    >CANCEL</button>
+  </section>
+
+  <section class="col-12 d-flex flex-row flex-wrap gap-1 p-2">
+    <section class="col-12 col-xxl-2 col-md-10 xl-10"    *ngIf="forAiHelping">
+      <input
+        type="text"
+        class="form-control col-12"
+        id="aiSkill"
+        aria-describedby="skillHelp"
+        placeholder="Enter Job Name"
+
+      />
+    </section>
+    <button
+      type="button"
+      class="btn btn-primary col-12 col-xxl-2 col-md-4"
+      (click)="toggleForAiHelping()"
+      *ngIf="!forAiHelping"
+    >SKILL HELP WITH AI</button>
+    <button
+      type="button"
+      class="btn btn-primary col-12 col-xxl-2 col-md-4"
+      *ngIf="forAiHelping"
+    >SUGGEST SKILL</button>
+    <button
+      type="button"
+      class="btn btn-secondary col-12 col-xxl-2 col-md-4"
+      *ngIf="forAiHelping"
+      (click)="toggleForAiHelping()"
+    >CANCEL</button>
+  </section>
+</div>

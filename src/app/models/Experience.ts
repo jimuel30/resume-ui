@@ -1,0 +1,17 @@
+export interface Experience {
+    experienceId: number;
+
+    companyName: string;
+
+    responsibilityList: Responsibility[];
+
+    startDate: Date;
+    endDate: Date;
+
+    userId: number;
+    resumeId: number;
+}
+export interface Responsibility {
+    responsibilityId: number;
+    responsibility: string;
+}

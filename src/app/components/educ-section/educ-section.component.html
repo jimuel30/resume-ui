@@ -1,0 +1,16 @@
+<div class="col-12 d-flex flex-column pt-4 pb-4" id="educ-section">
+  <section class="col-12 d-flex flex-row flex-wrap">
+    <h1 class="col-12 text-light p-2">MY EDUCATION</h1>
+  </section>
+  <section class="col-12 d-flex flex-column flex-wrap gap-1 p-2">
+    <button
+      type="button"
+      class="btn btn-primary col-12 col-xxl-2 col-md-4"
+      (click)="toggleShowForm()"
+      *ngIf="!showForm"
+    >ADD EDUCATION</button>
+    <app-educ-form class="col-12 d-flex flex-row flex-wrap gap-1" *ngIf="showForm" ></app-educ-form>
+  </section>
+
+</div>
+

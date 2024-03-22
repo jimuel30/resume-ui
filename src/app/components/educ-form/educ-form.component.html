@@ -1,0 +1,50 @@
+
+<section class="form-group col-12 col-xxl-4 col-md-12 col-sm-12 xl-4">
+  <label for="exampleCourse">Course Name</label>
+  <input
+    type="text"
+    class="form-control col-12"
+    id="exampleCourse"
+    aria-describedby="courseHelp"
+    placeholder="Enter Course"
+    name="course"
+    [(ngModel)]="saveEducation.course"
+  />
+  <small class="form-text">**Required</small>
+</section>
+
+<section class="form-group col-12 col-xxl-4 col-md-12 col-sm-12 xl-4">
+  <label for="exampleInstitution">Institution Name</label>
+  <input
+    type="text"
+    class="form-control col-12"
+    id="exampleInstitution"
+    aria-describedby="institutionHelp"
+    placeholder="Enter Institution"
+    name="institution"
+    [(ngModel)]="saveEducation.institutionName"
+  />
+  <small class="form-text">**Required</small>
+</section>
+
+<section class="form-group col-12 col-xxl-1 col-md-12 col-sm-12 xl-1">
+  <label for="startDate">Start Date</label>
+  <input type="month" class="form-control" placeholder="MM/YYYY" id="startDate"   [(ngModel)]="saveEducation.startDate">
+  <small class="form-text">**Required</small>
+</section>
+
+<section class="form-group col-12 col-xxl-1 col-md-12 col-sm-12 xl-1">
+  <label for="endDate">End Date</label>
+  <input type="month" class="form-control" placeholder="MM/YYYY" id="endDate"   [(ngModel)]="saveEducation.endDate">
+  <small class="form-text">**Required</small>
+</section>
+<button
+  type="button"
+  class="btn btn-primary col-12 col-xxl-2 col-md-5 "
+  (click)="submitSaveHandler()"
+>SAVE</button>
+<button
+  type="button"
+  class="btn btn-secondary col-12 col-xxl-2 col-md-5"
+  (click)="toggleShowFormHandler()"
+>CANCEL</button>

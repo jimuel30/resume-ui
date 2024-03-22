@@ -1,0 +1,38 @@
+<div class="col-12 d-flex flex-column pt-4 pb-4" id="social-section">
+
+  <section class="col-12 d-flex flex-row flex-wrap">
+    <h1 class="col-12 text-light p-2">MY SOCIALS</h1>
+  </section>
+  <section class="col-12 d-flex flex-row flex-wrap gap-1 p-2">
+    <section class="col-12 col-xxl-2 col-md-10 xl-10"    *ngIf="forSaving">
+      <input
+        type="text"
+        class="form-control col-12"
+        id="aiSkill"
+        aria-describedby="skillHelp"
+        placeholder="Enter Social Link"
+        name="social"
+        [(ngModel)]="saveSocial.socialLink"
+      />
+    </section>
+    <button
+      type="button"
+      class="btn btn-primary col-12 col-xxl-2 col-md-4"
+      (click)="toggleForSaving()"
+      *ngIf="!forSaving"
+    >ADD SOCIAL</button>
+    <button
+      type="button"
+      class="btn btn-primary col-12 col-xxl-2 col-md-4"
+      *ngIf="forSaving"
+      (click)="submitSaveHandler()"
+    >SAVE</button>
+    <button
+      type="button"
+      class="btn btn-secondary col-12 col-xxl-2 col-md-4"
+      *ngIf="forSaving"
+      (click)="toggleForSaving()"
+    >CANCEL</button>
+  </section>
+
+</div>
