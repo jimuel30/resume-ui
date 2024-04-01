@@ -27,16 +27,24 @@ import { environment } from '../../../environments/environment';
 export class DashboardPageComponent implements OnInit {
     constructor(private apiService: ApiService) {}
 
+    userList: UserList = {
+        skillList: [],
+        experienceList: [],
+        resumeList: [],
+        educationList: [],
+        socialList: [],
+    };
+
     ngOnInit(): void {
         this.getUserListHandler();
     }
 
-    userList!: UserList;
-
     getUserListHandler(): void {
         const url = environment.domain + environment.getUserList;
         this.apiService.genericGet(url).subscribe({
-            next: (v) => console.log(v.data),
+            next: (v) => {
+                this.userList = v.data;
+            },
             error: (e) => console.error(e.error.message),
             complete: () => console.info('complete'),
         });

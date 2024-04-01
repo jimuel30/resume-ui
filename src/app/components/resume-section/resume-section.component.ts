@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
 import { environment } from '../../../environments/environment';
+import { Resume } from '../../models/Resume';
 
 @Component({
     selector: 'app-resume-section',
@@ -10,6 +11,7 @@ import { environment } from '../../../environments/environment';
     styleUrl: './resume-section.component.scss',
 })
 export class ResumeSectionComponent {
+    @Input() resumeList!: Resume[];
     constructor(private apiService: ApiService) {}
 
     submitSaveHandler(): void {

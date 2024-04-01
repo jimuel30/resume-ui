@@ -3,4 +3,5 @@ export interface Social {
     socialLink: string;
     userId: number;
     resumeId: number;
+    socialName: string;
 }

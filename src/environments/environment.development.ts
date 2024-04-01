@@ -5,6 +5,9 @@ export const environment = {
     saveSkill: '/save/skill?resumeId=',
     saveResume: '/save/resume',
     saveEducation: '/save/education?resumeId=',
+    saveExperience: '/save/experience?resumeId=',
+    saveResponsibility: '/save/responsibility?resumeId=',
     register: '/auth/register',
     getUserList: '/get/userList',
+    getResumeById: '/get/resume/byId?resumeId=',
 };

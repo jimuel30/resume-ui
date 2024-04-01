@@ -2,15 +2,13 @@
   <section class="col-12 d-flex flex-row flex-wrap">
     <h1 class="col-12 text-light p-2">MY EDUCATION</h1>
   </section>
-  <section class="col-12 d-flex flex-column flex-wrap gap-1 p-2">
-    <button
-      type="button"
-      class="btn btn-primary col-12 col-xxl-2 col-md-4"
-      (click)="toggleShowForm()"
-      *ngIf="!showForm"
-    >ADD EDUCATION</button>
-    <app-educ-form class="col-12 d-flex flex-row flex-wrap gap-1" *ngIf="showForm" ></app-educ-form>
+  <section class="col-12 d-flex flex-column flex-wrap gap-2 p-2">
+    <app-educ-form class="col-12 d-flex flex-row flex-wrap gap-1" [forEdit]="false"></app-educ-form>
+    <app-educ-card  class="col-12 d-flex flex-row flex-wrap gap-1"  *ngFor="let educ of educationList" [education]="educ"></app-educ-card>
   </section>
+
+
+
 
 </div>
 

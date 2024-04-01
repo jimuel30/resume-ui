@@ -8,5 +8,5 @@ export const routes: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'register', component: RegisterFormComponent },
     { path: 'dashboard', component: DashboardPageComponent },
-    { path: 'resume', component: ResumePageComponent },
+    { path: 'resume/:resumeId', component: ResumePageComponent },
 ];

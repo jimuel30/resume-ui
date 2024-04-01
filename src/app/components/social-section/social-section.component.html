@@ -3,16 +3,33 @@
   <section class="col-12 d-flex flex-row flex-wrap">
     <h1 class="col-12 text-light p-2">MY SOCIALS</h1>
   </section>
+
+  <section class="col-12 d-flex flex-row flex-wrap p-2 gap-1">
+    <div *ngFor="let scl of socialList" id="social-wrapper" class="p-2 d-flex flex-row gap-3 justify-content-center align-items-sm-center">
+      <label class="text-light">{{scl.socialName}}</label>
+      <i class="fa-solid fa-x"></i>
+    </div>
+  </section>
+
   <section class="col-12 d-flex flex-row flex-wrap gap-1 p-2">
-    <section class="col-12 col-xxl-2 col-md-10 xl-10"    *ngIf="forSaving">
+    <section class="col-12 col-xxl-2 col-md-10 xl-10 d-flex flex-column gap-1"    *ngIf="forSaving">
       <input
         type="text"
         class="form-control col-12"
-        id="aiSkill"
-        aria-describedby="skillHelp"
+        id="socialLink"
+        aria-describedby="socialLinkHelp"
         placeholder="Enter Social Link"
-        name="social"
+        name="socialLink"
         [(ngModel)]="saveSocial.socialLink"
+      />
+      <input
+        type="text"
+        class="form-control col-12"
+        id="socialName"
+        aria-describedby="socialNameHelp"
+        placeholder="Enter Social Name"
+        name="socialName"
+        [(ngModel)]="saveSocial.socialName"
       />
     </section>
     <button

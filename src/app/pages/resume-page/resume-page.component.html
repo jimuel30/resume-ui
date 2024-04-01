@@ -1,1 +1,25 @@
-<p>resume-page works!</p>
+<div class="col-12  d-flex flex-row justify-content-center align-items-start pt-4 gap-4" id="my-resume">
+  <div class="col-5  bg-light  vh-100 p-1 pt-3">
+    <div class="col-12 d-flex justify-content-center align-items-center flex-column pb-2 pt-2" id="contact-sect">
+      <label class="col-12 d-flex justify-content-center align-items-center">{{resume.firstName+" "+resume.lastName}}</label>
+      <label class="col-12 d-flex justify-content-center align-items-center">{{resume.profession}}</label>
+      <label class="col-12 d-flex justify-content-center align-items-center">{{resume.email+" | "+resume.city}}</label>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="col-5 d-flex flex-column gap-2 justify-content-center align-items-center p-2 pt-4 pb-4" id="side-bar">
+    <button
+      type="button"
+      class="btn btn-primary col-11"
+    >SAVE</button>
+    <button
+      type="button"
+      class="btn btn-primary col-11"
+      (click)="downloadResume()"
+    >EXPORT AS PDF</button>
+  </div>
+</div>

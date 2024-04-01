@@ -1,0 +1,57 @@
+<div class="col-12 d-flex flex-row flex-wrap p-2 gap-1 justify-content-between" id="exp-card">
+  <section class="col-12 col-xxl-5 col-xl-5 d-flex flex-column">
+    <h3>{{experience.companyName}}</h3>
+    <h3>{{experience.position}}</h3>
+  </section>
+  <section class="col-12 col-xxl-5 col-xl-5 d-flex flex-column">
+    <h3>{{experience.startDate+" - "+experience.endDate}}</h3>
+    <button
+      type="button"
+      class="btn btn-secondary col-12 col-xxl-4 col-md-5 col-xl-5"
+    >REMOVE</button>
+  </section>
+
+
+
+  <section class="col-12 d-flex flex-row flex-wrap gap-2">
+
+    <app-exp-form class="col-12" [experience]="experience" [forEdit]="true"></app-exp-form>
+
+  </section>
+
+  <section class="col-12 mt-2" >
+      <section class="col-12 d-flex flex-column gap-1 p-1">
+        <section  class="col-12 d-flex flex-row"  *ngFor="let resp of experience.responsibilityList">
+          <p>{{resp.responsibility}}</p>
+        </section>
+      </section>
+      <section class="col-12 d-flex flex-row flex-wrap gap-2 pt-1 pb-1" *ngIf="showForm">
+        <textarea
+          class="form-control col-12"
+          id="aiSkill"
+          aria-describedby="responsibilityHelp"
+          placeholder="Enter Job Responsibility"
+          name="responsibilityName"
+          [(ngModel)]="responsiblity.responsibility"
+        ></textarea>
+
+        <button
+        type="button"
+        class="btn btn-primary col-12 col-xxl-2 col-md-4"
+        (click)="submitSaveHandler()"
+      >SAVE</button>
+        <button
+          type="button"
+          class="btn btn-secondary col-12 col-xxl-2 col-md-4"
+          (click)="toggleShowForm()"
+        >CANCEL</button>
+
+      </section>
+      <button
+        type="button"
+        class="btn btn-primary col-12 col-xxl-2 col-md-4"
+        (click)="toggleShowForm()"
+        *ngIf="!showForm"
+      >ADD RESPONSIBILITY</button>
+    </section>
+</div>

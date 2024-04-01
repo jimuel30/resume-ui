@@ -4,38 +4,44 @@ import { NgIf } from '@angular/common';
 import { Education } from '../../models/Education';
 import { ApiService } from '../../services/api/api.service';
 import { environment } from '../../../environments/environment';
+import { Experience, Responsibility } from '../../models/Experience';
+import { Console } from 'inspector';
 
 @Component({
-    selector: 'app-educ-form',
+    selector: 'app-exp-form',
     standalone: true,
     imports: [FormsModule, NgIf],
-    templateUrl: './educ-form.component.html',
-    styleUrl: './educ-form.component.scss',
+    templateUrl: './exp-form.component.html',
+    styleUrl: './exp-form.component.scss',
 })
-export class EducFormComponent implements OnInit {
-    @Input() education?: Education;
+export class ExpFormComponent implements OnInit {
+    @Input() experience?: Experience;
     @Input() forEdit!: boolean;
+    frontButtonText = 'ADD EXPERIENCE';
+    companyPlaceHolder = 'Enter Company Name';
+    jobPlaceHolder = 'Enter Job Position';
 
-    saveEducation: Education = {
-        educationId: 0,
-        resumeId: 0,
-        userId: 0,
-        course: '',
+    saveExperience: Experience = {
+        experienceId: 0,
+        companyName: '',
+        responsibilityList: [],
         startDate: new Date(),
         endDate: new Date(),
-        institutionName: '',
+        userId: 0,
+        resumeId: 0,
+        position: '',
     };
 
     constructor(private apiService: ApiService) {}
-
-    frontButtonText = 'ADD EDUCATION';
 
     ngOnInit(): void {
         if (this.forEdit) {
             this.frontButtonText = 'EDIT';
 
-            if (this.education) {
-                this.saveEducation = this.education;
+            if (this.experience) {
+                this.saveExperience = this.experience;
+                this.companyPlaceHolder = this.experience.companyName;
+                this.jobPlaceHolder = this.experience.position;
             }
         }
     }
@@ -49,14 +55,13 @@ export class EducFormComponent implements OnInit {
     }
 
     submitSaveHandler(): void {
-        const url = environment.domain + environment.saveEducation + 0;
-        this.apiService.genericSave(this.saveEducation, url).subscribe({
+        const url = environment.domain + environment.saveExperience + 0;
+        this.apiService.genericSave(this.saveExperience, url).subscribe({
             next: (v) => console.log(v.data),
             error: (e) => console.error(e.error.message),
             complete: () => console.info('complete'),
         });
     }
-
     submitEditHandler(): void {
         //todo
     }

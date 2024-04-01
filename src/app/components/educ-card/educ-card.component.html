@@ -1,0 +1,17 @@
+<div class="col-12 d-flex flex-row flex-wrap p-2 gap-1 justify-content-between" id="educ-card">
+  <section class="col-12 col-xxl-5 col-xl-5 d-flex flex-column">
+    <h3>{{education.course}}</h3>
+    <h3>{{education.institutionName}}</h3>
+  </section>
+  <section class="col-12 col-xxl-5 col-xl-5 d-flex flex-column">
+    <h3>{{education.startDate+" - "+education.endDate}}</h3>
+    <button
+      type="button"
+      class="btn btn-secondary col-12 col-xxl-4 col-md-5 col-xl-5 "
+    >REMOVE</button>
+  </section>
+  <section class="col-12">
+    <app-educ-form class="col-12 d-flex flex-row flex-wrap gap-1" [forEdit]="true" [education]="education"></app-educ-form>
+  </section>
+
+</div>

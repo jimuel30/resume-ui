@@ -2,34 +2,34 @@
   class="d-flex justify-content-start align-items-center col-12 vh-100 max-vh-100 flex-column"
   id="dashboard"
 >
-  <div class="col-11 pt-4 d-flex flex-row flex-wrap gap-1 p-2">
-    <button
-      type="button"
-      class="btn btn-primary col-12 col-xxl-1 col-md-3"
-    >RESUMES</button>
-    <button
-      type="button"
-      class="btn btn-light col-12 col-xxl-1 col-md-3"
-    >SOCIALS</button>
-    <button
-      type="button"
-      class="btn btn-light col-12 col-xxl-1 col-md-3"
-    >SKILLS</button>
-    <button
-      type="button"
-      class="btn btn-light col-12 col-xxl-1 col-md-3"
-    >EDUCATION</button>
-    <button
-      type="button"
-      class="btn btn-light col-12 col-xxl-1 col-md-3"
-    >EXPERIENCES</button>
-  </div>
+<!--  <div class="col-11 pt-4 d-flex flex-row flex-wrap gap-1 p-2">-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn btn-primary col-12 col-xxl-1 col-md-3"-->
+<!--    >RESUMES</button>-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn btn-light col-12 col-xxl-1 col-md-3"-->
+<!--    >SOCIALS</button>-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn btn-light col-12 col-xxl-1 col-md-3"-->
+<!--    >SKILLS</button>-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn btn-light col-12 col-xxl-1 col-md-3"-->
+<!--    >EDUCATION</button>-->
+<!--    <button-->
+<!--      type="button"-->
+<!--      class="btn btn-light col-12 col-xxl-1 col-md-3"-->
+<!--    >EXPERIENCES</button>-->
+<!--  </div>-->
   <div class="col-11 d-flex flex-column p-2 gap-1" id="section">
-    <app-resume-section class="col-12"></app-resume-section>
-    <app-social-section class="col-12"></app-social-section>
-    <app-skills-section class="col-12"></app-skills-section>
-    <app-educ-section class="col-12"></app-educ-section>
-    <app-exp-section class="col-12"></app-exp-section>
+    <app-resume-section class="col-12" [resumeList]="userList.resumeList"></app-resume-section>
+    <app-social-section class="col-12" [socialList]="userList.socialList"></app-social-section>
+    <app-skills-section class="col-12" [skillList]="userList.skillList"></app-skills-section>
+    <app-educ-section class="col-12"   [educationList]="userList.educationList"></app-educ-section>
+    <app-exp-section class="col-12" [experienceList]="userList.experienceList" ></app-exp-section>
 
 
   </div>

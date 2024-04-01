@@ -8,46 +8,49 @@
   >{{frontButtonText}}</button>
 
 
-  <section class="col-12 d-flex flex-row justify-content-start align-items-start gap-1 flex-wrap"   *ngIf="showForm">
+  <section class="col-12 d-flex flex-row justify-content-start align-items-start gap-1 flex-wrap"   *ngIf="showForm" id="exp-form">
     <section class="form-group col-12 col-xxl-4 col-md-12 col-sm-12 xl-4">
-      <label for="exampleCourse">Course Name</label>
+      <label for="exampleCompanyName">Company Name</label>
       <input
         type="text"
         class="form-control col-12"
-        id="exampleCourse"
-        aria-describedby="courseHelp"
-        placeholder="Enter Course"
+        id="exampleCompanyName"
+        aria-describedby="companyHelp"
+        [placeholder]="companyPlaceHolder"
         name="course"
-        [(ngModel)]="saveEducation.course"
+        [(ngModel)]="saveExperience.companyName"
       />
       <small class="form-text">**Required</small>
     </section>
 
-    <section class="form-group col-12 col-xxl-4 col-md-12 col-sm-12 xl-4">
-      <label for="exampleInstitution">Institution Name</label>
+      <section class="form-group col-12 col-xxl-4 col-md-12 col-sm-12 xl-4">
+      <label for="exampleJobPosition">Job Title</label>
       <input
         type="text"
         class="form-control col-12"
-        id="exampleInstitution"
-        aria-describedby="institutionHelp"
-        placeholder="Enter Institution"
-        name="institution"
-        [(ngModel)]="saveEducation.institutionName"
+        id="exampleJobPosition"
+        aria-describedby="positionHelp"
+        placeholder="Enter Job Position"
+        name="course"
+        [(ngModel)]="saveExperience.position"
       />
       <small class="form-text">**Required</small>
     </section>
+
 
     <section class="form-group col-12 col-xxl-1 col-md-12 col-sm-12 xl-1">
       <label for="startDate">Start Date</label>
-      <input type="month" class="form-control" placeholder="MM/YYYY" id="startDate"   [(ngModel)]="saveEducation.startDate">
+      <input type="month" class="form-control" placeholder="MM/YYYY" id="startDate"   [(ngModel)]="saveExperience.startDate">
       <small class="form-text">**Required</small>
     </section>
 
     <section class="form-group col-12 col-xxl-1 col-md-12 col-sm-12 xl-1">
       <label for="endDate">End Date</label>
-      <input type="month" class="form-control" placeholder="MM/YYYY" id="endDate"   [(ngModel)]="saveEducation.endDate">
+      <input type="month" class="form-control" placeholder="MM/YYYY" id="endDate"   [(ngModel)]="saveExperience.endDate">
       <small class="form-text">**Required</small>
     </section>
+
+
     <button
       type="button"
       class="btn btn-primary col-12 col-xxl-2 col-md-5"
