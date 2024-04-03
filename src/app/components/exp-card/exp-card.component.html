@@ -8,6 +8,7 @@
     <button
       type="button"
       class="btn btn-secondary col-12 col-xxl-4 col-md-5 col-xl-5"
+      (click)="submitDeleteHandler()"
     >REMOVE</button>
   </section>
 
@@ -20,11 +21,10 @@
   </section>
 
   <section class="col-12 mt-2" >
-      <section class="col-12 d-flex flex-column gap-1 p-1">
-        <section  class="col-12 d-flex flex-row"  *ngFor="let resp of experience.responsibilityList">
-          <p>{{resp.responsibility}}</p>
-        </section>
-      </section>
+    <app-responsibility-section [responsibilityList]="experience.responsibilityList" [experienceId]="experience.experienceId">
+
+    </app-responsibility-section>
+
       <section class="col-12 d-flex flex-row flex-wrap gap-2 pt-1 pb-1" *ngIf="showForm">
         <textarea
           class="form-control col-12"
@@ -32,7 +32,7 @@
           aria-describedby="responsibilityHelp"
           placeholder="Enter Job Responsibility"
           name="responsibilityName"
-          [(ngModel)]="responsiblity.responsibility"
+          [(ngModel)]="responsibility.responsibility"
         ></textarea>
 
         <button

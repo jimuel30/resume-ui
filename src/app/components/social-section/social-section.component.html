@@ -7,7 +7,7 @@
   <section class="col-12 d-flex flex-row flex-wrap p-2 gap-1">
     <div *ngFor="let scl of socialList" id="social-wrapper" class="p-2 d-flex flex-row gap-3 justify-content-center align-items-sm-center">
       <label class="text-light">{{scl.socialName}}</label>
-      <i class="fa-solid fa-x"></i>
+      <i class="fa-solid fa-x" (click)="submitDeleteHandler(scl.socialId)"></i>
     </div>
   </section>
 

@@ -42,4 +42,13 @@ export class SkillsSectionComponent {
             complete: () => console.info('complete'),
         });
     }
+
+    submitDeleteHandler(skillId: number): void {
+        const url = environment.domain + environment.deleteSkill + skillId;
+        this.apiService.genericDelete(url).subscribe({
+            next: (v) => console.log(v.data),
+            error: (e) => console.error(e.error.message),
+            complete: () => console.info('complete'),
+        });
+    }
 }

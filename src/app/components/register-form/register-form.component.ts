@@ -3,6 +3,7 @@ import { NgIf } from '@angular/common';
 import { RegisterRequest } from '../../models/RegisterRequest';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api/api.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'app-register-form',
@@ -77,6 +78,18 @@ export class RegisterFormComponent {
         this.apiService.register(this.registerRequest).subscribe({
             next: (v) => {
                 localStorage.setItem('token', JSON.stringify(v.data.body.data));
+                this.getUserDtoHandler();
+            },
+            error: (e) => console.error(e.error.message),
+            complete: () => console.info('complete'),
+        });
+    }
+
+    getUserDtoHandler(): void {
+        const url = environment.domain + environment.getUserDto;
+        this.apiService.genericGet(url).subscribe({
+            next: (v) => {
+                console.log(v.data);
             },
             error: (e) => console.error(e.error.message),
             complete: () => console.info('complete'),

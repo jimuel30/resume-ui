@@ -39,6 +39,17 @@ export class ApiService {
         );
     }
 
+    genericDelete(url: string): Observable<any> {
+        const authToken = this.extractToken();
+        const headers = new HttpHeaders({
+            Authorization: `Bearer ${authToken.token.token}`,
+        });
+
+        return this.http.delete<any>(url, { headers }).pipe(
+            map((response: any) => response) // Extract the body here
+        );
+    }
+
     extractToken(): AuthToken {
         const dataFromStorage = localStorage.getItem('token');
         let authToken: AuthToken;
