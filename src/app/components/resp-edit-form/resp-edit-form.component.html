@@ -1,0 +1,20 @@
+<section class="col-12 d-flex flex-row flex-wrap gap-2 pt-1 pb-1" id="resp-edit">
+        <textarea
+          class="form-control col-12 m-0"
+          id="aiSkill"
+          aria-describedby="responsibilityHelp"
+          placeholder="Enter Job Responsibility"
+          name="responsibilityName"
+          [ngModel]="responsibility.responsibility"
+        ></textarea>
+
+  <button
+    type="button"
+    class="btn btn-primary col-12 col-xxl-2 col-md-4"
+  >SAVE</button>
+  <button
+    type="button"
+    class="btn btn-secondary col-12 col-xxl-2 col-md-4"
+    (click)="toggleFormHandler()"
+  >CANCEL</button>
+</section>

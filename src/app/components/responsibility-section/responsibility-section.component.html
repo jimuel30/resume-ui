@@ -1,5 +1,5 @@
 <section class="col-12 d-flex flex-column gap-1 p-1">
-  <section  class="col-12 d-flex flex-row"  *ngFor="let resp of responsibilityList">
-    <p>{{resp.responsibility}}</p>
+  <section  class="col-12 d-flex flex-column align-items-center gap-1"  *ngFor="let resp of responsibilityList">
+    <app-resp-item [responsibility]="resp" [experienceId]="experienceId" class="col-12"></app-resp-item>
   </section>
 </section>
