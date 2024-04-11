@@ -35,6 +35,7 @@ export class SocialSectionComponent {
         this.apiService.genericSave(this.saveSocial, url).subscribe({
             next: (v) => {
                 this.socialList.push(v.data);
+
             },
             error: (e) => console.error(e.error.message),
             complete: () => console.info('complete'),

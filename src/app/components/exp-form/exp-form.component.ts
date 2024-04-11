@@ -47,23 +47,12 @@ export class ExpFormComponent implements OnInit {
     }
 
     submitHandler(): void {
-        if (this.forEdit) {
-            this.submitEditHandler();
-        } else {
-            this.submitSaveHandler();
-        }
-    }
-
-    submitSaveHandler(): void {
         const url = environment.domain + environment.saveExperience + 0;
         this.apiService.genericSave(this.saveExperience, url).subscribe({
             next: (v) => console.log(v.data),
             error: (e) => console.error(e.error.message),
             complete: () => console.info('complete'),
         });
-    }
-    submitEditHandler(): void {
-        //todo
     }
 
     showForm = false;

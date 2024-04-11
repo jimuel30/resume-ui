@@ -44,6 +44,7 @@ export class DashboardPageComponent implements OnInit {
         this.apiService.genericGet(url).subscribe({
             next: (v) => {
                 this.userList = v.data;
+                console.log(v.data);
             },
             error: (e) => console.error(e.error.message),
             complete: () => console.info('complete'),

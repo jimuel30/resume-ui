@@ -5,12 +5,13 @@
           aria-describedby="responsibilityHelp"
           placeholder="Enter Job Responsibility"
           name="responsibilityName"
-          [ngModel]="responsibility.responsibility"
+          [(ngModel)]="responsibility.responsibility"
         ></textarea>
 
   <button
     type="button"
     class="btn btn-primary col-12 col-xxl-2 col-md-4"
+    (click)="submitSaveHandler()"
   >SAVE</button>
   <button
     type="button"

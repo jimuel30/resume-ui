@@ -41,14 +41,6 @@ export class EducFormComponent implements OnInit {
     }
 
     submitHandler(): void {
-        if (this.forEdit) {
-            this.submitEditHandler();
-        } else {
-            this.submitSaveHandler();
-        }
-    }
-
-    submitSaveHandler(): void {
         const url = environment.domain + environment.saveEducation + 0;
         this.apiService.genericSave(this.saveEducation, url).subscribe({
             next: (v) => console.log(v.data),

@@ -33,6 +33,7 @@ export class ExpCardComponent {
         responsibilityId: 0,
         responsibility: '',
         experienceId: 0,
+        userId: 0,
     };
 
     toggleShowForm(): void {
